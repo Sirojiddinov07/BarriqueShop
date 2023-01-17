@@ -1,0 +1,321 @@
+   {% extends "base.html"%}
+    {%load static%}
+    {% block content %}
+
+  <body>
+
+    <div class="heading heading--shop">
+      <div class="mt-3">
+        <h5 class="subtitle text-center mb-3">our products</h5>
+        <h1 class="title title--heading">shop list</h1>
+      </div>
+    </div>
+
+    <div class="shop-list">
+      <div class="wrapper">
+        <div class="row mx-0">
+          <div class="col-lg-3 pl-0 mb-5">
+            <div class="mb-5">
+              <h3 class="title title--card title--dark mb-1">Categories</h3>
+              <ul class="blog__categories-list col-md-9 col-xl-12">
+                <li class="blog__categories-list-item"><p>White Wine</p></li>
+                <li class="blog__categories-list-item"><p>Vineyard</p></li>
+                <li class="blog__categories-list-item"><p>Toscana</p></li>
+                <li class="blog__categories-list-item"><p>Popular</p></li>
+              </ul>
+            </div>
+
+            <div class="mb-5">
+              <h3 class="title title--card title--dark mb-4">Latest</h3>
+
+              <div class="mb-5 row mx-0">
+                <a class="shop-small__item-link col-sm-6 col-lg-12 px-0" href="#">
+                  <div class="shop-small__item">
+                    <div class="shop-small__image-holder">
+                      <img src="images/small-bottle-sauvignon.png" alt="shop small item">
+                    </div>
+
+                    <div class="shop-small__item-info">
+                      <p class="subtitle subtitle--orange">toscana</p>
+                      <h4 class="product__info-name">Sauvignon Blanc</h4>
+                      <p class="shop-small__item-price">$143</p>
+                    </div>
+                  </div>
+                </a>
+
+                <a class="shop-small__item-link col-sm-6 col-lg-12 px-0" href="#">
+                  <div class="shop-small__item">
+                    <div class="shop-small__image-holder">
+                      <img src="images/small-bottle-cabernet.png" alt="shop small item">
+                    </div>
+
+                    <div class="shop-small__item-info">
+                      <p class="subtitle subtitle--orange">Argentina</p>
+                      <h4 class="product__info-name">Cabernet Sauvignon</h4>
+                      <p class="shop-small__item-price">
+                        <span class="shop-small__item-price-old mr-3">$65</span>
+                        <span class="shop-small__item-price-discount">$30</span>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+
+                <a class="shop-small__item-link col-sm-6 col-lg-12 px-0" href="#">
+                  <div class="shop-small__item">
+                    <div class="shop-small__image-holder">
+                      <img src="images/small-bottle-scalabrone.png" alt="shop small item">
+                    </div>
+
+                    <div class="shop-small__item-info">
+                      <p class="subtitle subtitle--orange">Piedmont</p>
+                      <h4 class="product__info-name">Scalabrone</h4>
+                      <p class="shop-small__item-price">$25</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="title title--card title--dark mb-2">price filter</h3>
+
+              <div class="price-slider mb-4">
+                <input type="range" value="10" min="10" max="350" step="10" />
+                <input type="range" value="270" min="10" max="350" step="10" />
+
+                <div class="price-slider__from-to d-flex align-items-center justify-content-between">
+                  <div>
+                    <p>
+                      <span>From</span>
+                      $<span class="price-from">10</span>
+                      <span>to</span>
+                      $<span class="price-to">270</span>
+                    </p>
+                  </div>
+
+                  <button class="button button--filter">filter</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-9 p-0">
+            <div class="mb-4">
+              <div class="shop-list__sort-holder">
+                <p>Showing
+                  <span>9</span>
+                  of
+                  <span>22</span>
+                  products
+                </p>
+
+                <div>
+                  <select class="shop-list__sort-select" name="" id="">
+                    <option value="" selected>Default Sorting</option>
+                    <option value="">Price down</option>
+                    <option value="">Default up</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mx-0">
+              <div class="product-holder col-sm-6 col-lg-4 mb-5">
+                <div class="product">
+                  <div class="product__box">
+                    <a href="#">
+                      <div class="product--tag product--tag__new">new</div>
+                      <div class="product__hover">
+                        <button class="button button--default product--button-add">add to cart</button>
+                      </div>
+                      <img class="product__image" src="images/product-bottle.png" alt="product bottle">
+                    </a>
+                  </div>
+
+                  <div class="product__info text-center">
+                    <p class="product__info-origin">chile</p>
+                    <p class="product__info-name">MOSCATO CAVIT</p>
+                    <div class="product__info-price-holder">
+                      <p class="product__info-price">$65</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-holder col-sm-6 col-lg-4 mb-5">
+                <div class="product">
+                  <div class="product__box">
+                    <a href="#">
+                      <div class="product__hover">
+                        <button class="button button--default product--button-add">add to cart</button>
+                      </div>
+                      <img class="product__image" src="images/product-bottle-blue.png" alt="product bottle">
+                    </a>
+                  </div>
+
+                  <div class="product__info text-center">
+                    <p class="product__info-origin">green Valley</p>
+                    <p class="product__info-name">RIESLING MICHELLE</p>
+                    <div class="product__info-price-holder">
+                      <p class="product__info-price">$65</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-holder col-sm-6 col-lg-4 mb-5">
+                <div class="product">
+                  <div class="product__box">
+                    <a href="#">
+                      <div class="product--tag product--tag__sale">sale</div>
+                      <div class="product__hover">
+                        <button class="button button--default product--button-add">add to cart</button>
+                      </div>
+                      <img class="product__image" src="images/product-bottle-yellow.png" alt="product bottle">
+                    </a>
+                  </div>
+
+                  <div class="product__info text-center">
+                    <p class="product__info-origin">france</p>
+                    <p class="product__info-name">CHARDONNAY</p>
+                    <div class="product__info-price-holder">
+                      <p class="product__info-price">$65</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-holder col-sm-6 col-lg-4 mb-5">
+                <div class="product">
+                  <div class="product__box">
+                    <a href="#">
+                      <div class="product__hover">
+                        <button class="button button--default product--button-add">add to cart</button>
+                      </div>
+                      <img class="product__image" src="images/product-bottle-chianti.png" alt="product bottle">
+                    </a>
+                  </div>
+
+                  <div class="product__info text-center">
+                    <p class="product__info-origin">chile</p>
+                    <p class="product__info-name">Chianti Classico</p>
+                    <div class="product__info-price-holder">
+                      <p class="product__info-price">$65</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-holder col-sm-6 col-lg-4 mb-5">
+                <div class="product">
+                  <div class="product__box">
+                    <a href="#">
+                      <div class="product--tag product--tag__sold">sold</div>
+                      <div class="product__hover">
+                        <button class="button button--default product--button-add">add to cart</button>
+                      </div>
+                      <img class="product__image" src="images/product-bottle-moet.png" alt="product bottle">
+                    </a>
+                  </div>
+
+                  <div class="product__info text-center">
+                    <p class="product__info-origin">green Valley</p>
+                    <p class="product__info-name">Moet & Chandon</p>
+                    <div class="product__info-price-holder">
+                      <p class="product__info-price">$65</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-holder col-sm-6 col-lg-4 mb-5">
+                <div class="product">
+                  <div class="product__box">
+                    <a href="#">
+                      <div class="product__hover">
+                        <button class="button button--default product--button-add">add to cart</button>
+                      </div>
+                      <img class="product__image" src="images/product-bottle-gold.png" alt="product bottle">
+                    </a>
+                  </div>
+
+                  <div class="product__info text-center">
+                    <p class="product__info-origin">france</p>
+                    <p class="product__info-name">Tignanello</p>
+                    <div class="product__info-price-holder">
+                      <p class="product__info-price">$65</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-holder col-sm-6 col-lg-4 mb-5">
+                <div class="product">
+                  <div class="product__box">
+                    <a href="#">
+                      <div class="product__hover">
+                        <button class="button button--default product--button-add">add to cart</button>
+                      </div>
+                      <img class="product__image" src="images/product-bottle-pinot.png" alt="product bottle">
+                    </a>
+                  </div>
+
+                  <div class="product__info text-center">
+                    <p class="product__info-origin">italy</p>
+                    <p class="product__info-name">Pinot Grigio</p>
+                    <div class="product__info-price-holder">
+                      <p class="product__info-price">$65</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-holder col-sm-6 col-lg-4 mb-5">
+                <div class="product">
+                  <div class="product__box">
+                    <a href="#">
+                      <div class="product__hover">
+                        <button class="button button--default product--button-add">add to cart</button>
+                      </div>
+                      <img class="product__image" src="images/product-bottle-blue.png" alt="product bottle">
+                    </a>
+                  </div>
+
+                  <div class="product__info text-center">
+                    <p class="product__info-origin">italy</p>
+                    <p class="product__info-name">MOSCATO D’Asti</p>
+                    <div class="product__info-price-holder">
+                      <p class="product__info-price">$65</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-holder col-sm-6 col-lg-4 mb-5">
+                <div class="product">
+                  <div class="product__box">
+                    <a href="#">
+                      <div class="product--tag product--tag__new">new</div>
+                      <div class="product__hover">
+                        <button class="button button--default product--button-add">add to cart</button>
+                      </div>
+                      <img class="product__image" src="images/product-bottle-orange.png" alt="product bottle">
+                    </a>
+                  </div>
+
+                  <div class="product__info text-center">
+                    <p class="product__info-origin">chile</p>
+                    <p class="product__info-name">MOSCATO CAVIT</p>
+                    <div class="product__info-price-holder">
+                      <p class="product__info-price">$65</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+       {% endblock %}

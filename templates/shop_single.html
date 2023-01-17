@@ -1,0 +1,185 @@
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <body>
+
+    <div class="heading heading--shop">
+      <div class="mt-3">
+        <h5 class="subtitle text-center mb-3">our products</h5>
+        <h1 class="title title--heading">shop single</h1>
+      </div>
+    </div>
+
+    <div class="shop-single">
+      <div class="wrapper">
+        <div class="checkout-notification mb-5">
+          <p><strong>“Moscato Cavit”</strong> has been added to your cart.</p>
+          <div>
+            <button class="button button--enter-code">view cart</button>
+          </div>
+        </div>
+
+        <div class="row mb-5 mx-0">
+          <div class="col-md-4 px-0 px-lg-3">
+            <div class="shop-single__bottle-box">
+               {% if single.status %}
+              <div class="product--tag product--tag__new m-0">
+
+                {{ single.status}}
+              </div>
+              {% endif %}
+
+              <img src="{{single.img.url}}" alt="wine bottle">
+            </div>
+          </div>
+
+          <div class="col-md-8 px-0 pl-3 px-lg-3 pl-lg-5">
+            <p class="subtitle subtitle--orange shop-single__subtitle">{{single.name}}</p>
+            <h2 class="title title--section title--dark">{{single.info_name}}</h2>
+            <p class="shop-single__price">{{single.price}}</p>
+            <div class="d-flex align-items-center my-3">
+              <div class="shop-single__review mr-2">
+                <span class="shop-single__review-star mr-1"> <i class="fas fa-star"></i> </span>
+                <span class="shop-single__review-star mr-1"> <i class="fas fa-star"></i> </span>
+                <span class="shop-single__review-star mr-1"> <i class="fas fa-star"></i> </span>
+                <span class="shop-single__review-star mr-1"> <i class="fas fa-star"></i> </span>
+                <span class="shop-single__review-star"> <i class="far fa-star"></i> </span>
+              </div>
+
+              <div>
+                <p>(<span>1</span> customer review)</p>
+              </div>
+            </div>
+            <p class="mb-5">{{single.description}}</p>
+
+            <div class="shop-single__quantity-holder mb-4">
+              <div class="shop-single__quantity cart-table__quantity">
+                <span class="cart-table__quantity-text">Quantity</span>
+                <div class="cart-table__quantity-number-holder">
+                  <span class="cart-table__quantity-text cart-table__quantity-arrow"><</span>
+                  <span class="cart-table__quantity-text">3</span>
+                  <span class="cart-table__quantity-text cart-table__quantity-arrow">></span>
+                </div>
+              </div>
+              <button class="button button--wide">add to cart</button>
+            </div>
+
+            <div class="mb-4">
+              <p>SKU: 2235</p>
+              <p>Category: {{single.category}}</p>
+              <p>Tags: Wine, Bottle</p>
+            </div>
+
+            <div class="d-flex">
+              <a class="mr-3" href="https://www.instagram.com/"><img src="{% static 'images/shop-single-fb.png' %}" alt="fb"></a>
+              <a class="mr-3" href="https://www.instagram.com/"><img src="{% static 'images/shop-single-pinterest.png' %}" alt="fb"></a>
+              <a  href="https://www.instagram.com/"><img src="{% static 'images/shop-single-tw.png' %}" alt="fb"></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="py-5">
+          <div>
+            <ul class="tabs-box__tabs tabs">
+              <li rel="tab1" class="tabs__tab active">
+                <span class="tab__txt">Description</span>
+              </li>
+
+              <li rel="tab2" class="tabs__tab">
+                <span class="tab__txt">Additional Information</span>
+              </li>
+
+              <li rel="tab3" class="tabs__tab">
+                <span class="tab__txt">Reviews (<span>1</span>)</span>
+              </li>
+            </ul>
+
+            <div class="tabs-box">
+              <div class="tabs-box__content">
+                <div id="tab1" class="tab__content">
+                  <p class="tab__content-txt mb-4">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium .
+                  </p>
+
+                  <p><strong>What’s inside?</strong></p>
+                  <ul class="pt-3">
+                    <li class="mb-2">– Bottle of Wine</li>
+                    <li class="mb-2">– Gift Box</li>
+                  </ul>
+                </div>
+
+                <div id="tab2" class="tab__content">
+                  <p class="tab__content-txt">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium .Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium .
+                  </p>
+                </div>
+
+                <div id="tab3" class="tab__content">
+                  <p class="tab__content-txt">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium .Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="py-5">
+          <h5 class="subtitle subtitle--orange text-center">
+            Reds & whites
+          </h5>
+          <h1 class="title title--section title--dark text-center mt-3 mb-5">related products</h1>
+
+          <div class="row shop__products mx-0">
+            {% for i in product %}
+            <div class="product-holder col-md-6 col-lg-3">
+              <div class="product">
+                <div class="product__box">
+                  <a href="{% url 'shop_single' i.id%}">
+                    {% if i.status%}
+                    <div class="product--tag product--tag__new">{{i.status}}</div>
+                    {% endif %}
+                    <div class="product__hover">
+                      <button class="button button--default product--button-add">add to cart</button>
+                    </div>
+                    <img class="product__image" src="{{i.img.url}}" alt="product bottle">
+                  </a>
+                </div>
+
+                <div class="product__info text-center">
+                  <p class="product__info-origin">{{i.name}}</p>
+                  <p class="product__info-name">{{i.info_name}}</p>
+                  <div class="product__info-price-holder">
+                    <p class="product__info-price">{{i.price}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    {% endblock %}
+
+

@@ -1,0 +1,167 @@
+   {% extends "base.html"%}
+    {%load static%}
+    {% block content %}
+
+
+
+    <div class="heading heading--blog">
+      <div class="mt-3">
+        <h5 class="subtitle text-center mb-3">latest news</h5>
+        <h1 class="title title--heading">our blog</h1>
+      </div>
+    </div>
+
+    <div class="blog">
+      <div class="wrapper">
+        <div class="row mx-0 flex-column-reverse flex-lg-row">
+          <div class="col-lg-9 pl-lg-0">
+            <div class="blog-post mb-4">
+              <div class="blog-post__image-holder">
+                <img class="blog-post__image" src="{{blog.img.url}}" alt="blog post image">
+              </div>
+              <div class="py-3">
+                <h5 class="subtitle subtitle--orange">{{blog.date}}</h5>
+                <h2 class="title title--section title--dark my-3 pr-4">{{blog.name}}</h2>
+                <p>
+                  {{blog.text}}
+                </p>
+              </div>
+            </div>
+
+
+
+
+            <div>
+              <div class="blog-single__tab">
+                <div class="d-flex flex-wrap mb-4 mb-sm-0 flex-column flex-sm-row">
+                  <p class="d-flex align-items-center mr-4">
+                    <span class="d-flex align-items-center mr-2"><img src="{% static 'images/single-post-comm.png' %}" alt="comment"></span>
+                    <span>2 Comments</span>
+                  </p>
+
+                  <p class="d-flex align-items-center mr-4">
+                    <span class="d-flex align-items-center mr-2"><img src="{% static 'images/single-post-like.png'  %}" alt="comment"></span>
+                    <span>6 Likes</span>
+                  </p>
+
+                  <p class="d-flex align-items-center">
+                    <span class="d-flex align-items-center mr-2"><img src="{% static 'images/single-post-location.png' %}" alt="comment"></span>
+                    <span>Wine, Toscana</span>
+                  </p>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-end">
+                  <p class="mr-3">Share</p>
+                  <div class="d-flex align-items-center">
+                    <a class="blog-single__socials" href="#"><i class="fab fa-twitter mr-3"></i></a>
+                    <a class="blog-single__socials" href="#"><i class="fab fa-instagram mr-3"></i></a>
+                    <a class="blog-single__socials" href="#"><i class="fab fa-facebook-f"></i></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-5">
+                <a class="blog-single__previous-link" href="#">
+                  <span class="mr-2"><i class="fas fa-long-arrow-alt-left"></i></span>
+                  <span>previous post</span>
+                </a>
+              </div>
+
+              <div class="blog-single__comments-holder">
+                <h3 class="title title--card title--dark mb-4">comments:</h3>
+              {% for i in comment %}
+                <div class="blog-single__comment-box">
+                  <div>
+                    <div class="d-flex align-items-center justify-content-between justify-content-sm-start">
+                      <span class="blog-single__comment-author mr-3">{{i.name}}</span>
+                      <span class="blog-single__comment-time">{{i.date}}</span>
+                    </div>
+                    <p class="my-md-2">{{i.comment}}</p>
+                    <a class="blog-single__comment-reply" href="#">reply</a>
+                  </div>
+                </div>
+                {% endfor %}
+
+              </div>
+
+              <div class="mt-5">
+                <h3 class="title title--card title--dark mb-4">leave a comment</h3>
+
+                <form action="" method="post">
+                  {% csrf_token %}
+                  <div class="row mb-3 mx-0">
+                    <div class="col px-0">
+                      <textarea name="comment" rows="8" cols="80" placeholder="Message..."></textarea>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3 mx-0">
+                    <div class="col-md-6 px-0 pr-md-2 mb-4">
+                      <input type="text" placeholder="Your Name*">
+                    </div>
+
+                    <div class="col-md-6 px-0 pl-md-2 mb-4">
+                      <input type="email" placeholder="Your Email*">
+                    </div>
+                  </div>
+
+                  <div>
+                    <button type="submit" class="button button--default">submit</button>
+                  </div>
+                </form>
+              </div>
+
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-3 pr-lg-0 pb-4 pb-lg-0">
+            <div class="mb-5">
+              <h3 class="title title--card title--dark mb-1">Categories</h3>
+              <ul class="blog__categories-list col-md-9 col-xl-12">
+                <li class="blog__categories-list-item"><p>White Wine</p></li>
+                <li class="blog__categories-list-item"><p>Vineyard</p></li>
+                <li class="blog__categories-list-item"><p>Toscana</p></li>
+                <li class="blog__categories-list-item"><p>Popular</p></li>
+              </ul>
+            </div>
+
+            <div class="mb-3 mb-lg-5">
+              <h3 class="title title--card title--dark mb-4">Recent posts</h3>
+              <div class="row">
+                {% for i in post %}
+                <div class="blog-small-post col-sm-6 col-lg-12">
+                  <a href="#">
+                    <div class="d-flex align-items-center">
+                      <div class="blog-small-post__image-holder">
+                        <img class="blog-small-post__image" src="{{i.img.url}}" alt="small opst image">
+                      </div>
+                      <div>
+                        <h5 class="subtitle subtitle--orange mb-1">{{i.date}}</h5>
+                        <p class="blog-small-post__title">{{i.name}}</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                {% endfor %}
+                </div>
+              </div>
+
+            <div>
+              <h3 class="title title--card title--dark mb-4">Tags</h3>
+
+              <div class="tags-holder">
+                <span class="tag">vineyard</span>
+                <span class="tag">wine</span>
+                <span class="tag">grapes</span>
+                  <span class="tag">italy</span>
+                <span class="tag">champagne</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% endblock %}

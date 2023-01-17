@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'style/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'style/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900|Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style/base.css' %}">
+    <link rel="stylesheet" href="{% static 'style/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'style/components.css' %}">
+    <link rel="stylesheet" href="{% static 'style/theme.css' %}">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="wrapper-wide">
+      <div class="header">
+        <nav class="navbar navbar-expand-lg header__nav">
+          <div class="header-logo">
+            <a class="header-logo__link" href="#">
+              <img src="{% static 'images/header-logo.png' %}" alt="logo">
+            </a>
+          </div>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav navigation">
+              <li class="nav-item navigation__item my-1"><a class="nav-link navigation__link " href="{% url 'index' %}">home</a></li>
+              <li class="nav-item navigation__item my-1"><a class="nav-link navigation__link" href="{% url 'about' %}">about</a></li>
+              <li class="nav-item navigation__item my-1"><a class="nav-link navigation__link" href="{% url 'blog' %}">blog</a></li>
+              <li class="nav-item navigation__item my-1"><a class="nav-link navigation__link" href="{% url 'shop' %}">shop</a></li>
+              <li class="nav-item navigation__item my-1"><a class="nav-link navigation__link" href="{% url 'contact' %}">contact</a></li>
+              <li class="nav-item navigation__item my-1"><a class="nav-link navigation__link" href="{% url 'login' %}">login</a></li>
+              <li class="nav-item navigation__item my-1"><a class="nav-link navigation__link" href="{% url 'logout' %}">logout</a></li>
+
+              <li class="my-1">
+                <a class="navigation__link navigation__link-cart" href="{% url 'shop_cart' %}">
+                  <i class="fas fa-shopping-basket"></i>
+                  <span class="navigation__link-cart-number">{{number}}</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    {% block content%}
+    {% endblock content %}
+
+
+
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer__aside col-12 col-lg-3">
+            <p class="footer__text">reservations@barrique.com,</p>
+            <p class="footer__text">office@barrique.com</p>
+          </div>
+          <div class="col-12 col-lg-6 mx-auto my-4 text-center">
+            <div class="footer__logo-holder">
+              <a href="#">
+                <img src="{% static 'images/footer-logo.png' %}" alt="">
+              </a>
+            </div>
+            <p class="footer__text">Lorem ipsum dolor sit amet, consectetur adipisicing </p>
+            <div class="footer__subscribe">
+              <form class="footer__form">
+                <input class="footer__subscribe-input" type="email" placeholder="Your email">
+                <button class="button button--subscribe" type="submit">submit</button>
+              </form>
+            </div>
+            <div class="footer__socials">
+              <a class="footer__socials-icon"  href="https://www.instagram.com/"><img src="{% static 'images/footer-fb.png' %}" alt="facebook"></a>
+              <a class="footer__socials-icon"  href="https://www.instagram.com/"><img src="{% static 'images/footer-insta.png' %}" alt="instagram"></a>
+              <a class="footer__socials-icon"  href="https://www.instagram.com/"><img src="{% static 'images/footer-tw.png' %}" alt="twitter"></a>
+            </div>
+          </div>
+          <div class="footer__aside col-12 col-lg-3">
+            <p class="footer__text">41 Green Ave 10013 New York,</p>
+            <p class="footer__text">504-349501, 910-320211</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__copyright">
+        <p class="footer__copyright-text">Copyright @Barrrique 2020</p>
+      </div>
+    </div>
+
+
+  </body>
+
+  <script type="text/javascript">
+      $('#headingCarousel').carousel({
+        interval: 4000
+      })
+  </script>
+</html>

@@ -1,0 +1,102 @@
+
+{% extends 'base.html'%}
+ {% load static%}
+ {% block content %}
+
+
+   <div class="heading heading--blog">
+      <div class="mt-3">
+        <h5 class="subtitle text-center mb-3">latest news</h5>
+        <h1 class="title title--heading">our blog</h1>
+      </div>
+    </div>
+
+    <div class="blog">
+      <div class="wrapper">
+        <div class="row mx-0 flex-column-reverse flex-lg-row">
+          <div class="col-lg-9 pl-lg-0">
+             {% for i in blog %}
+            <div class="blog-post">
+              <a href="{% url 'blog_single' i.id%}">
+              <div class="blog-post__image-holder">
+                <img class="blog-post__image" src="{{i.img.url}}" alt="blog post image">
+              </div>
+                </a>
+              <div class="py-3">
+                <h5 class="subtitle subtitle--orange">{{i.date}}</h5>
+                <h2 class="title title--section title--dark my-3 pr-4">{{i.name}}</h2>
+                <p class="mb-4">
+                  {{i.text}}                </p>
+                <div>
+                  <a class="button button--wide" href="#">learn more</a>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+
+
+            <div class="pagination">
+              <a class="pagination-link" href="#"><</a>
+              <ul class="pagination-list">
+                <li><a class="pagination-link" href="#">1</a></li>
+                <li><a class="pagination-link active" href="#">2</a></li>
+                <li><a class="pagination-link" href="#">3</a></li>
+                <li><a class="pagination-link" href="#">4</a></li>
+              </ul>
+              <a class="pagination-link" href="#">></a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 pr-lg-0 pb-4 pb-lg-0">
+            <div class="mb-3 mb-lg-5">
+              <h3 class="title title--card title--dark mb-1">Categories</h3>
+              <ul class="blog__categories-list col-md-9 col-xl-12">
+                <a href="{% url 'shop' %}">
+                <li class="blog__categories-list-item"><p>White Wine</p></li>
+                <li class="blog__categories-list-item"><p>Vineyard</p></li>
+                <li class="blog__categories-list-item"><p>Toscana</p></li>
+                <li class="blog__categories-list-item"><p>Popular</p></li>
+                  </a>
+              </ul>
+            </div>
+
+            <div class="mb-3 mb-lg-5">
+              <h3 class="title title--card title--dark mb-4">Recent posts</h3>
+              <div class="row">
+                {% for i in post %}
+                <div class="blog-small-post col-sm-6 col-lg-12">
+                  <a href="#">
+                    <div class="d-flex align-items-center">
+                      <div class="blog-small-post__image-holder">
+                        <img class="blog-small-post__image" src="{{i.img.url}}" alt="small opst image">
+                      </div>
+                      <div>
+                        <h5 class="subtitle subtitle--orange mb-1">{{i.date}}</h5>
+                        <p class="blog-small-post__title">{{i.name}}</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                {% endfor %}
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="title title--card title--dark mb-4">Tags</h3>
+
+              <div class="tags-holder">
+                <span class="tag">vineyard</span>
+                <span class="tag">wine</span>
+                <span class="tag">grapes</span>
+                  <span class="tag">italy</span>
+                <span class="tag">champagne</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  {% endblock %}
+

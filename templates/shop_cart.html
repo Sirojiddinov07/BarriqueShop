@@ -1,0 +1,95 @@
+{% extends 'base.html'%}
+ {% load static%}
+ {% block content %}
+
+
+
+    <div class="heading heading--shop">
+      <div class="mt-3">
+        <h5 class="subtitle text-center mb-3">our products</h5>
+        <h1 class="title title--heading">your cart</h1>
+      </div>
+    </div>
+
+    <div class="shop-cart">
+      <div class="wrapper">
+        <div class="shop-cart__table">
+          <table class="cart-table">
+            <thead class="cart-table__head">
+              <tr class="cart-table__row">
+                <th class="cart-table__heading"></th>
+                <th class="cart-table__heading">Product</th>
+                <th class="cart-table__heading">Price</th>
+                <th class="cart-table__heading">Quantity</th>
+                <th class="cart-table__heading">Total</th>
+              </tr>
+            </thead>
+            <tbody class="cart-table__body">
+            {% for i in cart %}
+              <tr class="cart-table__row">
+                <td class="cart-table__data">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                      <a href="{% url 'del_cart' i.id%}"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    </div>
+
+                    <div class="py-md-4">
+                      <div class="shop-cart__bottle-box">
+                        <img src="{% static 'images/cart-bottle.png' %}" alt="cart bottle">
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="cart-table__data"><p>{{i.product.info_name}}</p></td>
+                <td class="cart-table__data cart-table__price">${{i.product.price}}</td>
+                <td class="cart-table__data">
+                  <div class="cart-table__quantity">
+                    <span class="cart-table__quantity-text">Quantity</span>
+                    <div class="cart-table__quantity-number-holder">
+                      <span class="cart-table__quantity-text cart-table__quantity-arrow"><</span>
+                      <span class="cart-table__quantity-text">{{i.quantity}}</span>
+                      <span class="cart-table__quantity-text cart-table__quantity-arrow">></span>
+                    </div>
+                  </div>
+                </td>
+                {% if i.product.discount_price%}
+                <td class="cart-table__data cart-table__price">${{i.product.discount_price}}</td>
+              </tr>
+                {% else %}
+                <td class="cart-table__data cart-table__price">${{i.product.price}}</td>
+              </tr>
+                {% endif %}
+            {% endfor %}
+
+            </tbody>
+          </table>
+
+        </div>
+
+        <div>
+          <h3 class="shop-cart__total-title">cart totals</h3>
+
+          <div>
+            <p class="shop-cart__total">
+              <span class="shop-cart__total-text">items</span>
+              <span class="shop-cart__total-price">{{number}}</span>
+            </p>
+
+            <p class="shop-cart__total">
+              <span class="shop-cart__total-text">total</span>
+              <span class="shop-cart__total-price">${{total}}</span>
+            </p>
+          </div>
+        <a href="{% url 'shop_checkout' %}">
+          <div class="d-flex justify-content-end pt-5">
+            <div>
+              <button class="button button--wider">proceed to checkout</button>
+            </div>
+
+          </div>
+           </a>
+        </div>
+      </div>
+    </div>
+
+  {% endblock %}

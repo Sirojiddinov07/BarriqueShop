@@ -1,0 +1,287 @@
+{% extends 'base.html'%}
+ {% load static%}
+ {% block content %}
+
+
+
+
+    <div class="shop-heading">
+      <div class="wrapper">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="shop-heading__left mb-5 mb-md-0">
+              <h5 class="subtitle subtitle--dark mb-3">best rated</h5>
+              <h1 class="title title--heading title--dark mb-4">Barrique Winery & Vineyard</h1>
+              <p class="shop-heading__left-text mb-5">
+                Duis aute irure dolor in reprehenderit in voluptate velit
+                esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+              </p>
+              <div>
+                <a class="button button--wide" href="#">learn more</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 pt-5 pt-lg-0">
+            <div class="shop-heading__right">
+              <div class="shop-sale-signature">
+                <img src="{% static 'images/sale-signature.png' %}" alt="">
+              </div>
+
+              <div class="shop-heading-bottles">
+                <img class="shop-heading-bottles__image" src="{% static 'images/shop-heading-bottles.png' %}" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="shop">
+      <div class="shop-category">
+        <div class="wrapper">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="shop-category__type">
+                <div class="shop-category__type-name-wrap">
+                  <div class="shop-category__type-name">
+                    <span>white wine</span>
+                  </div>
+                </div>
+                <img class="shop-category__type-image" src="{% static 'images/category-white.png' %}" alt="">
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="shop-category__type">
+                <div class="shop-category__type-name-wrap">
+                  <div class="shop-category__type-name">
+                    <span>red wine</span>
+                  </div>
+                </div>
+                <img class="shop-category__type-image" src="{% static 'images/category-red.png' %}" alt="">
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="shop-category__type">
+                <div class="shop-category__type-name-wrap">
+                  <div class="shop-category__type-name">
+                    <span>desert wine</span>
+                  </div>
+                </div>
+                <img class="shop-category__type-image" src="{% static 'images/category-desert.png' %}" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop__products-list">
+        <div class="wrapper">
+          <h5 class="subtitle subtitle--orange text-center mb-4">feautured products</h5>
+          <h2 class="title title--section title--dark text-center mb-5">A wine with its <br> own style.</h2>
+
+          <div class="row">
+
+        {% for i in product %}
+            {% if i.category == "FEAUTURED"%}
+
+            <div class="product-holder col-md-6 col-lg-3">
+              <div class="product">
+                <div class="product__box">
+
+
+                    {%if i.status%}
+                    <div class="product--tag product--tag__sale">{{i.status}}</div>
+                    {% endif %}
+
+                    <div class="product__hover">
+                      <button class="button button--default product--button-add"> <a href="{% url 'add_cart' i.id %}">add to cart</a></button>
+
+
+                    </div>
+                  <a href="{% url 'shop_single' i.id %}">
+                     <img class="product__image" src="{{i.imageURL}}" alt="product bottle">
+                  </a>
+                </div>
+
+                <div class="product__info text-center">
+                  <p class="product__info-origin">{{i.name}}</p>
+                  <p class="product__info-name">{{i.info_name}}</p>
+                  <div class="product__info-price-holder">
+                    {% if i.discount_price%}
+                    <p class="product__info-price text-linetrough mr-2">${{i.price}}</p>
+                    <p class="product__info-price product__info-price--sale">{{i.discount_price}}</p>
+                    {% else %}
+                    <p class="product__info-price product__info-price--sale">{{i.price}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class="shop-testimonials">
+        <div class="testimonials">
+          <div class="testimonials__wrapper">
+            <div id="testimonialsCarousel" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#testimonialsCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#testimonialsCarousel" data-slide-to="1"></li>
+                <li data-target="#testimonialsCarousel" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <h5 class="subtitle text-center mb-4">what people say</h5>
+                  <h2 class="title title--section text-center">“My only regret is that I didn’t drink more wine.”</h2>
+                  <p class="testimonials__author text-center mt-4">Daniel jefferson</p>
+                </div>
+                <div class="carousel-item">
+                  <h5 class="subtitle text-center mb-4">what people say</h5>
+                  <h2 class="title title--section text-center">“My only regret is that I didn’t drink more wine.”</h2>
+                  <p class="testimonials__author text-center mt-4">Daniel jefferson</p>
+                </div>
+                <div class="carousel-item">
+                  <h5 class="subtitle text-center mb-4">what people say</h5>
+                  <h2 class="title title--section text-center">“My only regret is that I didn’t drink more wine.”</h2>
+                  <p class="testimonials__author text-center mt-4">Daniel jefferson</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop-small">
+        <div class="wrapper">
+          <div class="row">
+            <div class="col-md-4">
+              <h4 class="shop-small__title mb-4">latest</h4>
+
+              <div>
+                {% for i in latest%}
+                <a class="shop-small__item-link" href="#">
+                  <div class="shop-small__item">
+                    <div class="shop-small__image-holder" style=>
+                      <img src="{% static 'images/small-bottle-castel.png' %}" alt="shop small item">
+                    </div>
+
+                    <div class="shop-small__item-info">
+                      <p class="subtitle subtitle--orange">{{i.name}}</p>
+                      <h4 class="product__info-name">{{i.info_name}}</h4>
+                      <p class="shop-small__item-price">{{i.price}}</p>
+                    </div>
+                  </div>
+                </a>
+                {% endfor %}
+
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <h4 class="shop-small__title mb-4">popular</h4>
+
+              <div>
+               {% for i in popular%}
+                <a class="shop-small__item-link" href="#">
+                  <div class="shop-small__item">
+                    <div class="shop-small__image-holder" style=>
+                      <img src="{% static 'images/small-bottle-castel.png' %}" alt="shop small item">
+                    </div>
+
+                    <div class="shop-small__item-info">
+                      <p class="subtitle subtitle--orange">{{i.name}}</p>
+                      <h4 class="product__info-name">{{i.info_name}}</h4>
+                      <p class="shop-small__item-price">{{i.price}}</p>
+                    </div>
+                  </div>
+                </a>
+                {% endfor %}
+
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <h4 class="shop-small__title mb-4">Feautured</h4>
+
+              <div>
+                 {% for i in featured%}
+                <a class="shop-small__item-link" href="#">
+                  <div class="shop-small__item">
+                    <div class="shop-small__image-holder" style=>
+                      <img src="{% static 'images/small-bottle-castel.png' %}" alt="shop small item">
+                    </div>
+
+                    <div class="shop-small__item-info">
+                      <p class="subtitle subtitle--orange">{{i.name}}</p>
+                      <h4 class="product__info-name">{{i.info_name}}</h4>
+                      <p class="shop-small__item-price">{{i.price}}</p>
+                    </div>
+                  </div>
+                </a>
+                {% endfor %}
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="wrapper">
+          <h5 class="subtitle subtitle--orange text-center mb-4">Reds & whites</h5>
+          <h2 class="title title--section title--dark text-center mb-5">A great wine for <br> own style.</h2>
+
+          <div class="row shop__products mx-0">
+       {% for i in product %}
+            {% if i.color == "white" or i.color == 'red'%}
+
+            <div class="product-holder col-md-6 col-lg-3">
+              <div class="product">
+                <div class="product__box">
+                  <a href="#">
+                    {%if i.status%}
+                    <div class="product--tag product--tag__sale">{{i.status}}</div>
+                    {% endif %}
+                    <div class="product__hover">
+                      <button class="button button--default product--button-add">add to cart</button>
+                    </div>
+                    <img class="product__image" src="{{i.img.url}}" alt="product bottle">
+                  </a>
+                </div>
+
+                <div class="product__info text-center">
+                  <p class="product__info-origin">{{i.name}}</p>
+                  <p class="product__info-name">{{i.info_name}}</p>
+                  <div class="product__info-price-holder">
+                    {% if i.discount_price%}
+                    <p class="product__info-price text-linetrough mr-2">${{i.price}}</p>
+                    <p class="product__info-price product__info-price--sale">{{i.discount_price}}</p>
+                    {% else %}
+                    <p class="product__info-price product__info-price--sale">{{i.price}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock%}

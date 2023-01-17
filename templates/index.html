@@ -1,0 +1,258 @@
+{% extends 'base.html'%}
+ {% load static%}
+ {% block content %}
+
+    <div class="heading-home">
+      <div class="heading-home__title pt-md-5 py-md-0">
+        <h2 class="subtitle subtitle--dark">our story</h2>
+        <h1 class="title title--heading title--dark text-center mt-2 mb-5">
+          Barrique Winery <br>
+          & Vineyard
+        </h1>
+        <a href="#" class="button button--wide">learn more</a>
+      </div>
+
+      <div id="headingCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="{% static 'images/heading-bg1.jpg' %}" alt="First slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="{% static 'images/heading-bg2.jpg' %}" alt="Second slide">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about">
+      <div class="about__home wrapper">
+        <div class="row mx-0">
+          <div class="col-lg-8">
+            <h5 class="subtitle subtitle--orange mb-2">our story</h5>
+            <h1 class="title title--main title--dark about__title mb-4 mb-md-5">{{story.header}}</h1>
+
+            <div class="row">
+              <div class="col-md-6">
+                <p class="mb-5"><span class="text-highlight">{{story.strong_text}}</span> {{story.text}}</p>
+              </div>
+
+              <div class="col-md-6">
+                <p class="mb-4 pr-lg-5">{{story.text2}}</p>
+
+                <div><img src="{{story.sing_img.url}}" alt="signature"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="about__image-holder mx-auto mx-lg-0 pt-4 pt-lg-0">
+              <img class="about__image" src="{{story.img.url}}" alt="about image">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="video">
+      <div class="video-holder">
+        <img class="video-holder__video" src="{% static 'images/section-video.png' %}" alt="">
+      </div>
+    </div>
+
+    <div class="shop">
+      <div class="wrapper">
+        <h5 class="subtitle subtitle--orange text-center">
+          Reds & whites
+        </h5>
+        <h1 class="title title--section title--dark text-center mt-3 mb-5">A wine with its <br /> own style.</h1>
+
+          <div class="row shop__products mx-0">
+
+        {% for i in product %}
+
+            <div class="product-holder col-md-6 col-lg-3">
+              <div class="product">
+                <div class="product__box">
+                  <a href="#">
+                    {%if i.status%}
+                    <div class="product--tag product--tag__sale">{{i.status}}</div>
+                    {% endif %}
+                    <div class="product__hover">
+                      <button class="button button--default product--button-add">add to cart</button>
+                    </div>
+                    <img class="product__image" src="{{i.img.url}}" alt="product bottle">
+                  </a>
+                </div>
+
+                <div class="product__info text-center">
+                  <p class="product__info-origin">{{i.name}}</p>
+                  <p class="product__info-name">{{i.info_name}}</p>
+                  <div class="product__info-price-holder">
+                    {% if i.discount_price%}
+                    <p class="product__info-price text-linetrough mr-2">${{i.price}}</p>
+                    <p class="product__info-price product__info-price--sale">{{i.discount_price}}</p>
+                    {% else %}
+                    <p class="product__info-price product__info-price--sale">{{i.price}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+        {% endfor %}
+          </div>
+
+      </div>
+    </div>
+
+    <div class="visit">
+      <div class="visit__wrap row mx-0">
+        <div class="visit__left col-sm-12 col-lg-6"></div>
+        <div class="visit__right col-sm-12 col-lg-6">
+          <div class="visit__content">
+            <h5 class="subtitle subtitle--orange visit--subtitle">visit us</h5>
+            <h1 class="title title--section my-4">Barrique Winery & Vineyard</h1>
+            <p class="visit__contact">41 Green Ave 10013 New York, 504-349501, 910-320211,</p>
+            <p class="visit__contact">reservations@barrique.com, office@barrique.com</p>
+
+            <div class="text-center mt-5">
+              <a class="visit__social" href="#"><i class="fab fa-facebook-f"></i></a>
+              <a class="visit__social" href="#"><i class="fab fa-instagram"></i></i></a>
+              <a class="visit__social" href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="working-hours">
+      <div class="wrapper">
+        <div class="row mx-0">
+          <div class="col-lg-6 my-3">
+            <h5 class="subtitle subtitle--orange mb-3">wine tasting</h5>
+            <h1 class="title title--section title--dark mb-4">Working Hours</h1>
+            <p class="pr-lg-5 mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. <a href="#" class="text-underline">Ut enim ad minim veniam, quis nostrud exercitation ullamco</a> laboris nisi
+              ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate</p>
+            <button class="button button--default">schedule</button>
+          </div>
+
+          <div class="col-lg-6 my-3">
+            <div class="working-hours__table mx-auto mx-lg-0">
+              <div class="working-hours__day">
+                <span class="working-hours__dayname">monday</span>
+                <span class="working-hours__bottom-line"></span>
+                <span class="working-hours__time closed">Closed</span>
+              </div>
+              <div class="working-hours__day">
+                <span class="working-hours__dayname">tuesday</span>
+                <span class="working-hours__bottom-line"></span>
+                <span class="working-hours__time">9:00 - 22:00</span>
+              </div>
+              <div class="working-hours__day">
+                <span class="working-hours__dayname">wednesday</span>
+                <span class="working-hours__bottom-line"></span>
+                <span class="working-hours__time">9:00 - 22:00</span>
+              </div>
+              <div class="working-hours__day">
+                <span class="working-hours__dayname">thursday</span>
+                <span class="working-hours__bottom-line"></span>
+                <span class="working-hours__time">9:00 - 22:00</span>
+              </div>
+              <div class="working-hours__day">
+                <span class="working-hours__dayname">friday</span>
+                <span class="working-hours__bottom-line"></span>
+                <span class="working-hours__time">9:00 - 22:00</span>
+              </div>
+              <div class="working-hours__day">
+                <span class="working-hours__dayname">saturday</span>
+                <span class="working-hours__bottom-line"></span>
+                <span class="working-hours__time">9:00 - 22:00</span>
+              </div>
+              <div class="working-hours__day">
+                <span class="working-hours__dayname">sunday</span>
+                <span class="working-hours__bottom-line"></span>
+                <span class="working-hours__time">9:00 - 22:00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="latest-news">
+      <div class="wrapper">
+        <h5 class="subtitle subtitle--orange text-center">
+          from our blog
+        </h5>
+        <h1 class="title title--section title--dark text-center mt-3 mb-5">Latest news  <br /> & Events</h1>
+
+        <div class="row mx-0">
+          {% for i in news %}
+          <div class="col-lg-4 d-flex justify-content-center">
+            <div class="latest-news__card">
+              <div class="latest-news__image-holder">
+                <img class="latest-news__image" src="{{i.img.url}}" alt="latest news">
+              </div>
+              <div class="latest-news__content">
+                <h5 class="subtitle subtitle--orange mb-3"> {{ i.date|date:"M d, Y" }}</h5>
+                <h3 class="title title--card title--dark mb-3">{{i.name}}</h3>
+                <p>
+                  {{i.text}}
+                </p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="pour-wine">
+      <div class="pour-wine__image-holder">
+        <img class="pour-wine__image" src="{% static 'images/pour-wine.png' %}" alt="pour wine">
+      </div>
+    </div>
+    <div class="locations">
+      <div class="wrapper">
+        <div class="row mx-0">
+          <div class="col-md-6 mb-3">
+            <div class="locations__map">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d90634.3748763455!2d20.489830400000002!3d44.7741952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2srs!4v1584523314934!5m2!1sen!2srs" width="630" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </div>
+          </div>
+
+          <div class="col-md-6 pl-lg-5 pt-3">
+            <h5 class="subtitle subtitle--orange mb-3">wine tasting</h5>
+            <h1 class="title title--section title--dark mb-4">our locations</h1>
+            <p class="pr-lg-5 mb-3 mb-lg-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. <a href="#" class="text-underline">Ut enim ad minim veniam, quis nostrud exercitation ullamco</a> laboris nisi
+              ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate</p>
+            <button class="button button--default">find us</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="follow">
+      <div class="wrapper">
+        <h5 class="subtitle subtitle--orange text-center">
+          get in touch
+        </h5>
+        <h1 class="title title--section title--dark text-center mt-3 mb-5">follow us on<br /> instagram</h1>
+
+        <div class="row mx-0">
+          {% for i in ins_img %}
+          <div class="col-md-6 col-lg-3 d-flex justify-content-center">
+            <div class="follow__image-holder">
+              <a class="follow__image-link" href="https://www.instagram.com/">
+                <span class="follow__hover"><i class="fab fa-instagram"></i></span>
+                <img class="follow__image" src="{{i.img.url}}" alt="instagram photo">
+              </a>
+            </div>
+          </div>
+          {% endfor%}
+        </div>
+      </div>
+    </div>
+
+  {% endblock %}

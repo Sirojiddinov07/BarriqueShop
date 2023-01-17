@@ -1,0 +1,109 @@
+ {% extends 'base.html'%}
+ {% load static%}
+ {% block content %}
+
+    <div class="heading heading--about">
+      <div class="mt-3">
+        <h5 class="subtitle text-center mb-3">our story</h5>
+        <h1 class="title title--heading">About us</h1>
+      </div>
+    </div>
+
+    <div class="about">
+      <div class="about__home wrapper">
+        <div class="row mx-0">
+          <div class="col-lg-8">
+            <h5 class="subtitle subtitle--orange mb-2">our story</h5>
+          <h1 class="title title--main title--dark about__title mb-4 mb-md-5">{{story.header}}</h1>
+
+            <div class="row">
+              <div class="col-md-6">
+                <p class="mb-5"><span class="text-highlight">{{story.strong_text}}</span> {{story.text}}</p>
+              </div>
+
+              <div class="col-md-6">
+                <p class="mb-4 pr-lg-5">{{story.text2}}</p>
+
+                <div><img src="{{story.sing_img.url}}" alt="signature"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="about__image-holder mx-auto mx-lg-0 pt-4 pt-lg-0">
+              <img class="about__image" src="{{story.img.url}}" alt="about image">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonials">
+      <div class="testimonials__wrapper">
+        <div id="testimonialsCarousel" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#testimonialsCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#testimonialsCarousel" data-slide-to="1"></li>
+            <li data-target="#testimonialsCarousel" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <h5 class="subtitle text-center mb-4">what people say</h5>
+              <h2 class="title title--section text-center">“My only regret is that I didn’t drink more wine.”</h2>
+              <p class="testimonials__author text-center mt-4">Daniel jefferson</p>
+            </div>
+            <div class="carousel-item">
+              <h5 class="subtitle text-center mb-4">what people say</h5>
+              <h2 class="title title--section text-center">“My only regret is that I didn’t drink more wine.”</h2>
+              <p class="testimonials__author text-center mt-4">Daniel jefferson</p>
+            </div>
+            <div class="carousel-item">
+              <h5 class="subtitle text-center mb-4">what people say</h5>
+              <h2 class="title title--section text-center">“My only regret is that I didn’t drink more wine.”</h2>
+              <p class="testimonials__author text-center mt-4">Daniel jefferson</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="our-team">
+      <div class="wrapper">
+        <h5 class="subtitle subtitle--orange text-center">
+          who we are
+        </h5>
+        <h1 class="title title--section title--dark text-center mt-3 mb-5">meet our team <br /> of experts</h1>
+
+        <div class="row mx-0 pt-3">
+          {% for i in team %}
+          <div class="col-lg-4 d-flex justify-content-center">
+            <div class="latest-news__card">
+              <div class="latest-news__image-holder">
+                <img class="latest-news__image" src="{{i.img.url}}" alt="latest news">
+              </div>
+              <div class="latest-news__content">
+                <h5 class="subtitle subtitle--orange mb-3">{{i.type_of_job}}</h5>
+                <h3 class="title title--card title--dark mb-3">{{i.name}} </h3>
+                <p>
+                  {{i.info}}
+                </p>
+                <div class="our-team__socials mt-3">
+                  <a class="our-team__socials-link"  href="https://www.instagram.com/">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                  <a class="our-team__socials-link"  href="https://www.instagram.com/">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                  <a class="our-team__socials-link" href="https://www.instagram.com/">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+  {% endblock %}
